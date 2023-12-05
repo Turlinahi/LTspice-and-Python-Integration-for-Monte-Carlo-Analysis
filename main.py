@@ -4,10 +4,12 @@ import numpy as np
 import os
 
 def run_ltspice(netlist_path):
+    # Function to run LTspice simulation using subprocess
     ltspice_path = r'C:\Program Files\LTC\LTspiceXVII\XVIIx64.exe'
     subprocess.run([ltspice_path, '-b', '-ascii', netlist_path])
 
 def extract_values_from_log(log_path):
+    # Function to extract VB and VA values from LTspice log file
     with open(log_path, 'r') as log_file:
         lines = log_file.readlines()
 
@@ -20,26 +22,29 @@ def extract_values_from_log(log_path):
                 va_value = extract_value_from_line(line)
 
             if vb_value is not None and va_value is not None:
+                # Both VB and VA values found, no need to continue searching
                 break
 
         return va_value, vb_value
 
-
 def extract_value_from_line(line):
+    # Helper function to extract a numeric value from a line
     try:
         value_str = line.split('=')[1].strip()
         value = float(value_str)
         return value
     except (IndexError, ValueError):
+        # Handle cases where extraction fails (e.g., due to invalid format)
         return None
 
-
 def calculate_mean_and_variance(values):
+    # Function to calculate mean and variance of a list of values using numpy
     mean = np.mean(values)
     variance = np.var(values)
     return mean, variance
 
 def write_to_excel(output_excel, va_values, vb_values, mean_va, var_va, mean_vb, var_vb):
+    # Function to write data to an Excel file and open it with the default application
     wb = openpyxl.Workbook()
     ws = wb.active
 
@@ -62,6 +67,7 @@ def write_to_excel(output_excel, va_values, vb_values, mean_va, var_va, mean_vb,
     os.system(f'start excel "{output_excel}"')
 
 def main():
+    # Main function to orchestrate the entire process
     netlist_path = r'C:\Users\ioana\OneDrive\Documents\LTspiceXVII\Monte_Carlo_Memory_Cell.asc'
     log_path = r'C:\Users\ioana\OneDrive\Documents\LTspiceXVII\Monte_Carlo_Memory_cell\Monte_Carlo_Memory_Cell.log'
     output_excel = r'C:\Users\ioana\OneDrive\Documents\LTspiceXVII\Monte_Carlo_Memory_cell\output_data.xlsx'
