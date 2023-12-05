@@ -1,6 +1,14 @@
 
 # LTspice and Python Integration for Monte Carlo Analysis
 
+
+
+
+https://github.com/Turlinahi/LTspice-and-Python-Integration-for-Monte-Carlo-Analysis/assets/133703884/64c385cd-516b-44f5-85cb-f66eda7b44da
+
+
+
+
 ## Overview
 
 This repository contains Python scripts that integrate with LTspice for performing Monte Carlo analysis on a memory cell circuit. The circuit, implemented in LTspice, utilizes a Monte Carlo sweep for the transistor model parameters.
