@@ -1,6 +1,7 @@
 import subprocess
 import openpyxl
 import numpy as np
+import os
 
 def run_ltspice(netlist_path):
     ltspice_path = r'C:\Program Files\LTC\LTspiceXVII\XVIIx64.exe'
@@ -56,6 +57,9 @@ def write_to_excel(output_excel, va_values, vb_values, mean_va, var_va, mean_vb,
 
     # Save Excel file
     wb.save(output_excel)
+
+    # Open Excel file with the default application
+    os.system(f'start excel "{output_excel}"')
 
 def main():
     netlist_path = r'C:\Users\ioana\OneDrive\Documents\LTspiceXVII\Monte_Carlo_Memory_Cell.asc'
