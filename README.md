@@ -48,5 +48,7 @@ This repository contains Python scripts that integrate with LTspice for performi
 - The Python script automates LTspice simulations, extracts relevant data, and performs basic data analysis.
 
 Feel free to explore and contribute to further enhance the integration between LTspice and Python for circuit analysis.
+![image](https://github.com/Turlinahi/LTspice-and-Python-Integration-for-Monte-Carlo-Analysis/assets/133703884/b7a97eb5-7dcc-45b2-8a8d-1d81845b3b44)
+![image](https://github.com/Turlinahi/LTspice-and-Python-Integration-for-Monte-Carlo-Analysis/assets/133703884/a24851a5-4ab6-4531-8d60-36f15ceb7563)
 
 
